@@ -27,7 +27,7 @@ app.use(function (_, res, next) {
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
     credentials: true,
   },
 });
@@ -68,6 +68,6 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(PORT, () => {
+httpServer.listen(process.env.PORT || PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
