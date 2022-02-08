@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+}
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.CodeMirror {
+  @apply w-full h-screen bg-[#24dce6] py-8 px-4;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/Outfit-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-display: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/Outfit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/Outfit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/Outfit-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
