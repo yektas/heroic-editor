@@ -4,8 +4,8 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
   reactStrictMode: true,
-  basePath: isProd ? "/heroic-editor" : "/",
-  assetPrefix: isProd ? "/heroic-editor/" : "",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
 };
 
 module.exports = nextConfig;
