@@ -12,7 +12,7 @@ const Navbar = () => {
     if (!username) return;
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL!}/create-room`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL!}/create-room`,
       {
         method: "POST",
         headers: {
