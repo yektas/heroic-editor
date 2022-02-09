@@ -5,11 +5,7 @@ import dynamic from "next/dynamic";
 import EVENTS from "../config/events";
 import { useSocket } from "../context/socketContext";
 import toast from "react-hot-toast";
-import {
-  CloudDownloadIcon,
-  CloudUploadIcon,
-  PrinterIcon,
-} from "@heroicons/react/outline";
+import { CloudDownloadIcon, PrinterIcon } from "@heroicons/react/outline";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import UploadButton from "../components/UploadButton";
@@ -23,7 +19,7 @@ const Home: NextPage = () => {
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const { socket, roomId, setRoomId, username, setUsername } = useSocket();
+  const { socket, roomId, username, setUsername } = useSocket();
 
   const uploadMarkdown = (event: any) => {
     if (!event.target.files || event.target.files.length === 0) {
@@ -34,8 +30,9 @@ const Home: NextPage = () => {
     reader.readAsText(event.target.files[0]);
 
     reader.onload = function () {
-      setInput(reader.result as string);
-      socket.emit(EVENTS.CLIENT.NEW_MESSAGE, reader.result as string);
+      const newInput = reader.result as string;
+      setInput(newInput);
+      socket.emit(EVENTS.CLIENT.NEW_MESSAGE, newInput);
     };
 
     reader.onerror = function () {
@@ -76,7 +73,6 @@ const Home: NextPage = () => {
     });
 
     socket.on(EVENTS.SERVER.NEW_MESSAGE, ({ username, roomId, message }) => {
-      console.log(`${username} send ${message} to the room: ${roomId}`);
       setInput(message);
     });
 
