@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           <Codemirror input={input} setInput={onMessageChange} />
         </div>
         <div className="flex flex-col items-center justify-around ">
-          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
+          <h1 className="text-4xl text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
             Welcome <span>{username}!</span>
           </h1>
           <div className="flex flex-col items-center justify-center print:hidden ">
