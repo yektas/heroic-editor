@@ -32,7 +32,11 @@ const Home: NextPage = () => {
     reader.onload = function () {
       const newInput = reader.result as string;
       setInput(newInput);
-      socket.emit(EVENTS.CLIENT.NEW_MESSAGE, newInput);
+      socket.emit(EVENTS.CLIENT.NEW_MESSAGE, {
+        username,
+        roomId,
+        message: newInput,
+      });
     };
 
     reader.onerror = function () {
