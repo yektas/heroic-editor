@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
   reactStrictMode: true,
-  basePath: "/heroic-editor",
+  basePath: isProd ? "/heroic-editor" : "/",
   assetPrefix: isProd ? "/heroic-editor/" : "",
 };
 
