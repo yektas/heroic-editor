@@ -40,7 +40,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
         env:
-          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: yektas
           NEXT_PUBLIC_SERVER_URL: https://heroic-server.herokuapp.com
           NEXT_PUBLIC_BASE_URL: heroic-editor
 
